@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import {Avatar, Descriptions, Result} from "antd";
 import {useDispatch, useSelector} from "react-redux";
-import {getUserThunk, usersSelector} from "../../../../store/slices/users";
+import {clearUserAction, getUserThunk, usersSelector} from "../../../../store/slices/users";
 import Loader from "../../../../shared/loader/loader";
 import {UserOutlined} from "@ant-design/icons";
 import './user.css'
@@ -21,6 +21,7 @@ const UserPage: React.FC<props> = () => {
     useEffect(() => {
         dispatch(getUserThunk(params.id))
         return function cleanup() {
+            dispatch(clearUserAction(undefined))
         }
     }, [params, dispatch])
     if (!user.loaded) return <Loader/>

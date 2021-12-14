@@ -32,13 +32,20 @@ const usersSlice = createSlice({
     initialState,
     reducers: {
         setUsersAction: (state, action: PayloadAction<IUser[]>) => {
+            state.users.loaded = false
             state.users.entity = action.payload
             state.users.loaded = true
             state.users.errors.isError = false
         },
         setUserAction: (state, action: PayloadAction<IUser>) => {
+            state.users.loaded = false
             state.user.entity = action.payload
             state.user.loaded = true
+            state.user.errors.isError = false
+        },
+        clearUserAction: (state, action) => {
+            state.user.entity = action.payload
+            state.user.loaded = false
             state.user.errors.isError = false
         },
         userError: (state, action: PayloadAction<string>) => {
@@ -55,7 +62,7 @@ const usersSlice = createSlice({
 })
 
 //Actions
-export const {setUsersAction, usersError, setUserAction, userError} = usersSlice.actions
+export const {setUsersAction, usersError, setUserAction, userError, clearUserAction} = usersSlice.actions
 
 // Async Thunk
 export const getUsersThunk = (): ThunkAction<void, IUsersState, unknown, Action<string>> => {

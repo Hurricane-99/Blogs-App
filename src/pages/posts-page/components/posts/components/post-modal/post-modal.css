@@ -1,0 +1,7 @@
+.post__username{
+    margin-left: 10px;
+}
+.post-user__header{
+    display: flex;
+    align-items: center;
+}

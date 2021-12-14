@@ -7,7 +7,7 @@ interface props {
 }
 
 const UserInfo: React.FC<props> = ({entity}) => {
-    const {username, id, address, phone, email, company, name, website} = entity
+    const {id, address, phone, email, company, name} = entity
 
     return (
         <>

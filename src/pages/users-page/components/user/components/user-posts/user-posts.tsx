@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {getPostsByUserIdThunk, postsSelector} from "../../../../../../store/slices/posts";
 import Loader from "../../../../../../shared/loader/loader";
 import {Card, Col, Result, Row} from "antd";
-import PostModal from "../../../../../posts-page/components/posts/components/post/post";
+import PostModal from "../../../../../posts-page/components/posts/components/post-modal/post-modal";
 
 interface props {
     params: {
