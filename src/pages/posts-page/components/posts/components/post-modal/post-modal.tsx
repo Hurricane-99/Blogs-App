@@ -14,7 +14,7 @@ interface props {
 
 const PostModal: React.FC<props> = ({post, id, isUserPage}) => {
 
-
+    const {user} = useSelector(usersSelector)
     const [visible, setVisible] = useState<boolean>(false)
     const dispatch = useDispatch()
 
@@ -40,7 +40,7 @@ const PostModal: React.FC<props> = ({post, id, isUserPage}) => {
                         OK
                     </Button>
                 ]}>
-                <User isUserPage={isUserPage} id={id.toString()}/>
+                {isUserPage ? null : <User visible={visible} isUserPage={isUserPage} id={id.toString()}/>}
                 <Title level={5}>{post.title}</Title>
                 {post.body}
             </Modal>

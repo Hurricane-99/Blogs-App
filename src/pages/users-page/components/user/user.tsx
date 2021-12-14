@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useParams} from 'react-router-dom'
-import {Avatar, Descriptions, Result} from "antd";
+import {Avatar, Result} from "antd";
 import {useDispatch, useSelector} from "react-redux";
 import {clearUserAction, getUserThunk, usersSelector} from "../../../../store/slices/users";
 import Loader from "../../../../shared/loader/loader";
