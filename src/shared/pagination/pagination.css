@@ -1,0 +1,9 @@
+.pagination{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+.pagination__item{
+    margin-left: 3px;
+}
