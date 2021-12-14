@@ -9,9 +9,10 @@ import User from "./components/user/user";
 interface props {
     post: IPost
     id: number
+    isUserPage?: boolean
 }
 
-const PostModal: React.FC<props> = ({post, id}) => {
+const PostModal: React.FC<props> = ({post, id, isUserPage}) => {
 
 
     const [visible, setVisible] = useState<boolean>(false)
@@ -21,7 +22,9 @@ const PostModal: React.FC<props> = ({post, id}) => {
     const showModal = () => setVisible(true)
     const hideModal = () => {
         setVisible(false)
-        dispatch(clearUserAction(undefined))
+        if (!isUserPage) {
+            dispatch(clearUserAction(undefined))
+        }
     }
 
     return (
@@ -37,7 +40,7 @@ const PostModal: React.FC<props> = ({post, id}) => {
                         OK
                     </Button>
                 ]}>
-                <User id={id.toString()}/>
+                <User isUserPage={isUserPage} id={id.toString()}/>
                 <Title level={5}>{post.title}</Title>
                 {post.body}
             </Modal>

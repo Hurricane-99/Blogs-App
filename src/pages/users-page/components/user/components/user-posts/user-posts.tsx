@@ -32,7 +32,7 @@ const UserPosts: React.FC<props> = ({params, username}) => {
                     {posts.entity.map((post) => (
                         <Col key={post.id} md={8} sm={24} xs={24} lg={6} style={{marginBottom: '20px'}} span={8}>
                             <Card style={{minHeight: '200px'}} title={post.title}
-                                  extra={<><PostModal id={post.id} post={post}/></>}>
+                                  extra={<><PostModal isUserPage={true} id={post.id} post={post}/></>}>
                                 {post.body.slice(0, 50)}...
                             </Card>
                         </Col>

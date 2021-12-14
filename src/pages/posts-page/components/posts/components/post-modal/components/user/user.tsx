@@ -9,13 +9,16 @@ import {Link} from 'react-router-dom'
 
 interface props {
     id: string
+    isUserPage?: boolean
 }
 
-const User: React.FC<props> = ({id}) => {
+const User: React.FC<props> = ({id, isUserPage}) => {
     const {user} = useSelector(usersSelector)
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(getUserThunk(id))
+        if (!isUserPage) {
+            dispatch(getUserThunk(id))
+        }
     }, [dispatch])
     if (!user.loaded) return <Loader/>
     if (user.errors.isError) return <Result title={user.errors.message}/>
@@ -24,7 +27,7 @@ const User: React.FC<props> = ({id}) => {
         <>
             <div className={'post-user__header'}>
                 <Avatar size="large" icon={<UserOutlined/>}/>
-                <Link to={`/users/${id}`} className={'post__username'}>{username}</Link>
+                {isUserPage ?<span className={'post__username'}>{username}</span> :  <Link to={`/users/${id}`} className={'post__username'}>{username}</Link>}
             </div>
         </>
     )
