@@ -31,13 +31,13 @@ const PostModal: React.FC<props> = ({post, id}) => {
             </Button>
             <Modal
                 visible={visible}
-                title={<><User id={id.toString()}/></>}
                 onCancel={hideModal}
                 footer={[
                     <Button key={1} type={'primary'} onClick={hideModal}>
                         OK
                     </Button>
                 ]}>
+                <User id={id.toString()}/>
                 <Title level={5}>{post.title}</Title>
                 {post.body}
             </Modal>

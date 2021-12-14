@@ -23,7 +23,7 @@ const User: React.FC<props> = ({id}) => {
     return (
         <>
             <div className={'post-user__header'}>
-                <Avatar size="default" icon={<UserOutlined/>}/>
+                <Avatar size="large" icon={<UserOutlined/>}/>
                 <Link to={`/users/${id}`} className={'post__username'}>{username}</Link>
             </div>
         </>
