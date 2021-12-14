@@ -1,0 +1,18 @@
+ #filter-input {
+    width: 30%;
+}
+
+
+
+ @media (max-width: 768px) {
+     #filter-input{
+         width: 50%;
+     }
+ }
+
+@media (max-width: 575px) {
+    #filter-input{
+        width: 80%;
+    }
+
+}

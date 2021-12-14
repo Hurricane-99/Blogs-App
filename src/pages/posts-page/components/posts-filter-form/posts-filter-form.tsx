@@ -1,4 +1,5 @@
 import React from 'react'
+import './posts-filter-form.css'
 import {Button, Card, Form, Input} from "antd";
 import {useDispatch} from "react-redux";
 import {filterPostsAction, getPostsThunk} from "../../../../store/slices/posts";
@@ -21,7 +22,7 @@ const PostsFilterForm: React.FC<props> = () => {
         <Card style={{margin: '20px 0'}} title={'Фильтр'}>
             <Form layout={'vertical'} onFinish={onFinish}>
                 <Form.Item name={'title'} label={'Заголовок'}>
-                    <Input style={{width: '30%'}}/>
+                    <Input id={'filter-input'} className={'filter-input'}/>
                 </Form.Item>
                 <Form.Item>
                     <Button htmlType={'submit'} type={'default'}>
