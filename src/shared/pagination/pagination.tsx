@@ -33,15 +33,16 @@ const Pagination: React.FC<props> = ({postsPerPage, totalPosts, paginate, setPos
                         </li>
                     ))
                 }
-                <li className={'pagination__item'}>
-                    <Select size={'small'} onChange={onChange} defaultValue={10} style={{width: '110px', borderRadius: '5px'}}>
+                {pageNumbers.length ? <li className={'pagination__item'}>
+                    <Select size={'small'} onChange={onChange} defaultValue={10}
+                            style={{width: '110px', borderRadius: '5px'}}>
                         {pages.map(page => (
                             <Select.Option key={page} value={page}>
                                 {page} / page
                             </Select.Option>
                         ))}
                     </Select>
-                </li>
+                </li> : null}
             </ul>
 
         </>

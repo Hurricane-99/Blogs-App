@@ -2,9 +2,8 @@ import React, {useEffect, useState} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {getPostsThunk, postsSelector} from "../../../../store/slices/posts";
 import Loader from "../../../../shared/loader/loader";
-import {Card, Col, Empty, Result, Row, Space} from "antd";
+import {Card, Col, Empty, Result, Row} from "antd";
 import PostModal from "./components/post/post";
-import {usersSelector} from "../../../../store/slices/users";
 import Pagination from "../../../../shared/pagination/pagination";
 
 interface props {

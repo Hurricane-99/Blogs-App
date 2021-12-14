@@ -12,7 +12,10 @@ const PostsFilterForm: React.FC<props> = () => {
     const dispatch = useDispatch()
 
     const onFinish = (values: any) => {
-        dispatch(filterPostsAction(values.title))
+        if (!values.title.trim().length) {
+            return false
+        }
+        return dispatch(filterPostsAction(values.title))
     }
     const onReset = () => {
         dispatch(getPostsThunk())
